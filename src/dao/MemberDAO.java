@@ -32,7 +32,7 @@ public class MemberDAO {
 	}
 
 	public ArrayList<MemberVO> getAllMembers() {
-		String SQL="SELECT * FROM MemberVO";
+		String SQL="SELECT * FROM music_chart";
 		try {
 			rs=st.executeQuery(SQL);
 			while(rs.next()) {	

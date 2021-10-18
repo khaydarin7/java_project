@@ -15,7 +15,7 @@ public class MemberService {
 		return dao.getAllMembers();
 	}
 	public ArrayList<MemberVO> setMembers() {
-		return dao.setMembers(0, null, 0, 0);
+		return dao.setMembers(0, null, null,null,null,null,null,);
 		
 	}
 }
