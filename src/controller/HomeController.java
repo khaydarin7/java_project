@@ -1,7 +1,14 @@
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import dto.MemberVO;
 import service.MemberService;
@@ -31,10 +38,6 @@ public class HomeController {
 				}
 			}else if(choice==2) {
 				
-				System.out.printf("조회하실 제목을 입력하세요:");
-					
-				
-				
 			}else if(choice==3) {
 				
 			}else if(choice==4) {
@@ -42,8 +45,11 @@ public class HomeController {
 			}else if(choice==5) {
 				
 			}else if(choice==6) {
+				RealtimeChart.ViewRealtimeChart();
+			}else if(choice==7) {
 				break;
 			}
+			
 		}
 		sc.close();
 	}
@@ -53,6 +59,9 @@ public class HomeController {
 		System.out.println("3.가수조회");
 		System.out.println("4.음원추가");
 		System.out.println("5.음원삭제");
-		System.out.println("6.종료");
+		System.out.println("6.실시간 차트 확인");
+		System.out.println("7.종료");
 	}
+	
+	
 }
