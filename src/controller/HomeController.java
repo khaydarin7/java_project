@@ -108,9 +108,7 @@ public class HomeController {
 					String release_date = sc.next();
 					System.out.print("장르:");
 					String genre = sc.next();
-	
 					dtos=service.updateMembers(no,title, singer,lyricist,songwriter,release_date,genre);
-			
 					break;
 				case 2:
 					System.out.print("추가하실 노래 정보를 입력하세요.\n");
