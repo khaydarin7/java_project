@@ -20,4 +20,7 @@ public class MemberService {
 	public ArrayList<MemberVO> Search(String condition,String input_name) {
 		return dao.Search(condition,input_name);
 	}
+	public ArrayList<MemberVO> SearchByRank(String input_name) {
+		return dao.SearchByRank(input_name);
+	}
 }
