@@ -32,7 +32,7 @@ public class MemberDAO {
 	}
 
 	public ArrayList<MemberVO> getAllMembers() {
-		String SQL="SELECT * FROM music_chart";
+		String SQL="SELECT * FROM music_chart order by no asc";
 		try {
 			rs=st.executeQuery(SQL);
 			while(rs.next()) {	
@@ -53,7 +53,7 @@ public class MemberDAO {
 		return dtos;
 	}
 	public ArrayList<MemberVO> SearchByRank(String input_name) {
-		String SQL = "SELECT * FROM music_chart where no like "+input_name;
+		String SQL = "SELECT * FROM music_chart where no like "+input_name+" order by no asc";
 		try {
 			rs=st.executeQuery(SQL);
 			while(rs.next()) {
@@ -74,7 +74,7 @@ public class MemberDAO {
 		return dtos;
 	}
 	public ArrayList<MemberVO> Search(String condition,String input_name) {
-		String SQL = "SELECT * FROM music_chart where "+condition+" like '%"+input_name+"%'";
+		String SQL = "SELECT * FROM music_chart where "+condition+" like '%"+input_name+"%'" + " order by no asc";
 		try {
 			rs=st.executeQuery(SQL);
 			while(rs.next()) {
@@ -140,4 +140,5 @@ public class MemberDAO {
 		return dtos;
 	}
 }
+
 
