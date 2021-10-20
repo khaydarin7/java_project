@@ -121,5 +121,23 @@ public class MemberDAO {
 		}
 		return dtos;
 	}
+	public ArrayList<MemberVO> updateMembers(int no, String title, String singer,String lyricist,String songwriter,String release_date,String genre) {
+		String SQL = "UPDATE music_chart SET title=?, singer=?, lyricist=?, songwriter=?, release_date=?, genre=? where no=?";
+		try {
+			pstmt=con.prepareStatement(SQL);
+			pstmt.setString(1, title);
+			pstmt.setString(2, singer);
+			pstmt.setString(3, lyricist);
+			pstmt.setString(4, songwriter);
+			pstmt.setString(5, release_date);
+			pstmt.setString(6, genre);
+			pstmt.setInt(7, no);
+			pstmt.executeUpdate();
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return dtos;
+	}
 }
 
