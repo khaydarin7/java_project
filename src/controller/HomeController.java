@@ -37,12 +37,14 @@ public class HomeController {
 				
 				case 1:
 					System.out.print("조회하실 순위를 입력해주세요 ");
-					String input_name = sc.next();
-					dtos=service.Search("no",input_name);
-					
+					String input_name1 = sc.next();
+					dtos=service.Search("no",input_name1);
 					
 					break;
 				case 2:
+					System.out.print("조회하실 제목을 입력하세요 ");
+					String input_name = sc.next();
+					dtos=service.Search("title", input_name);
 					
 					break;
 				case 3:
