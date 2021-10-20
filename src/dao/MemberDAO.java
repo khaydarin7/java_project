@@ -21,7 +21,7 @@ public class MemberDAO {
 		dtos = new ArrayList<MemberVO>();
 		try {
 			String user="system";
-			String pw="0230";
+			String pw="1234";
 			String url="jdbc:oracle:thin:@localhost:1521:XE";
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con=DriverManager.getConnection(url,user,pw);
@@ -53,7 +53,7 @@ public class MemberDAO {
 		return dtos;
 	}
 	public ArrayList<MemberVO> Search(String condition,String input_name) {
-		String SQL = "select * from music_chart where "+condition+"like '%"+input_name+"%'";
+		String SQL = "SELECT * FROM music_chart where "+condition+" like '%"+input_name+"%'";
 		try {
 			rs=st.executeQuery(SQL);
 			while(rs.next()) {
@@ -65,7 +65,7 @@ public class MemberDAO {
 				String release_date = rs.getString("release_date");
 				String genre = rs.getString("genre");
 				MemberVO VO=new MemberVO(no,title,singer,lyricist,songwriter,release_date,genre);
-				dtos.add(VO);
+				
 			}
 		}
 		catch(SQLException e) {

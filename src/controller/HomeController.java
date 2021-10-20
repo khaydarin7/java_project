@@ -36,8 +36,18 @@ public class HomeController {
 				
 				case 1:
 					System.out.print("조회하실 순위를 입력해주세요 ");
-					int choice4 = sc.nextInt();
-					dtos=service.Search(condition,input_name);
+					String input_name = sc.next();
+					dtos=service.Search("no",input_name);
+					
+					for(int i=0; i<dtos.size(); i++) {
+					System.out.printf("순위 : %s ",dtos.get(i).getNO());
+					System.out.printf("제목 : %s ",dtos.get(i).getTitle());
+					System.out.printf("가수 : %s ",dtos.get(i).getSinger());
+					System.out.printf("작사가 : %s ",dtos.get(i).getLyticist());
+					System.out.printf("작곡가 : %s ",dtos.get(i).getSongWriter());
+					System.out.printf("발매일 : %s ",dtos.get(i).getRelease_Date());
+					System.out.printf("장르 : %s\n",dtos.get(i).getGenre());
+					}
 					break;
 				case 2:
 					

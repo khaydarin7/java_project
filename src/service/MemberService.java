@@ -18,6 +18,6 @@ public class MemberService {
 		return dao.setMembers(no,title, singer,lyricist,songwriter,release_date,genre);
 	}
 	public ArrayList<MemberVO> Search(String condition,String input_name) {
-		return dao.Search(condition, input_name);
+		return dao.Search(condition,input_name);
 	}
 }
