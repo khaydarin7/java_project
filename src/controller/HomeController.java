@@ -13,8 +13,6 @@ public class HomeController {
 		ArrayList<MemberVO> dtos;
 		MemberService service = new MemberService();
 		int choice = 0;
-		int choice2 = 0;
-		int choice3 = 0;
 		Scanner sc = new Scanner(System.in);
 		while(true)
 		{
@@ -32,17 +30,8 @@ public class HomeController {
 					System.out.printf("장르 : %s\n",dtos.get(i).getGenre());
 				}
 			}else if(choice==2) {
-
-				int no = sc.nextInt();
-				String title = sc.next();
-				String singer = sc.next();
-				String lyricist = sc.next();
-				String songwriter = sc.next();
-				String release_date = sc.next();
-				String genre = sc.next();
-				dtos=service.setMembers(no, title,singer,lyricist,songwriter,release_date, genre);
-
 				conditionMenu();
+				int choice2 = sc.nextInt();
 				switch(choice2) {
 				
 				case 1:
@@ -66,19 +55,30 @@ public class HomeController {
 				case 7:
 					
 					break;
-				default : System.out.println("잘못입력하셨습니다.");
+				default : System.out.println("잘못 입력하셨습니다.");
 					break;
 				}
 
 			}else if(choice==3) {
-				System.out.printf("1.수정");
-				System.out.printf("2.추가");
+				System.out.printf("1.수정\n");
+				System.out.printf("2.추가\n");
+				int choice3 = sc.nextInt();
+				
 				switch(choice3) {
 				case 1:
 					
 					break;
 				case 2:
-					
+					int no = sc.nextInt();
+					String title = sc.next();
+					String singer = sc.next();
+					String lyricist = sc.next();
+					String songwriter = sc.next();
+					String release_date = sc.next();
+					String genre = sc.next();
+					dtos=service.setMembers(no, title,singer,lyricist,songwriter,release_date, genre);
+					break;
+				default : System.out.println("잘못 입력하셨습니다.");
 					break;
 				}
 			}else if(choice==4) {//음원 삭제
@@ -87,6 +87,8 @@ public class HomeController {
 				RealtimeChart.ViewRealtimeChart();
 			}else if(choice==6) {
 				break;
+			}else {
+				System.out.println("잘못 입력하셨습니다.");
 			}
 			
 		}
@@ -99,8 +101,6 @@ public class HomeController {
 		System.out.println("4.음원삭제");
 		System.out.println("5.실시간 차트 조회");
 		System.out.println("6.종료");
-		
-		
 	}
 	public static void conditionMenu() {
 		System.out.println("1.순위로 조회");
@@ -110,8 +110,5 @@ public class HomeController {
 		System.out.println("5.작곡가로 조회");
 		System.out.println("6.발매일로 조회");
 		System.out.println("7.장르로 조회");
-		
-		
 	}
-	
 }
