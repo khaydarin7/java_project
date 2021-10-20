@@ -81,13 +81,11 @@ public class HomeController {
 					
 					break;
 				}
-			}else if(choice==4) {
+			}else if(choice==4) {//음원 삭제
 				
 			}else if(choice==5) {
-				
-			}else if(choice==6) {
 				RealtimeChart.ViewRealtimeChart();
-			}else if(choice==7) {
+			}else if(choice==6) {
 				break;
 			}
 			
