@@ -52,7 +52,7 @@ public class MemberDAO {
 		}
 		return dtos;
 	}
-	public void Search(String condition,String input_name) {
+	public ArrayList<MemberVO> Search(String condition,String input_name) {
 		String SQL = "select * from music_chart where "+condition+"like '%"+input_name+"%'";
 		try {
 			rs=st.executeQuery(SQL);
@@ -64,18 +64,14 @@ public class MemberDAO {
 				String songwriter = rs.getString("songwriter");
 				String release_date = rs.getString("release_date");
 				String genre = rs.getString("genre");
-				System.out.printf("%d ", no);
-				System.out.printf("%s ", title);
-				System.out.printf("%s ", singer);
-				System.out.printf("%s ", lyricist);	
-				System.out.printf("%s ", songwriter);
-				System.out.printf("%s ", release_date);
-				System.out.printf("%s\n", genre);
+				MemberVO VO=new MemberVO(no,title,singer,lyricist,songwriter,release_date,genre);
+				dtos.add(VO);
 			}
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
+		return dtos;
 	}
 	public ArrayList<MemberVO> setMembers(int no, String title, String singer,String lyricist,String songwriter,String release_date,String genre) {
 			String SQL = "Insert INTO music_chart(no,title,singer,lyricist,songwriter,release_date,genre) VALUES(?,?,?,?,?,?,?)";

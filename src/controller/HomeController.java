@@ -55,6 +55,4 @@ public class HomeController {
 		System.out.println("6.실시간 차트 확인");
 		System.out.println("7.종료");
 	}
-	
-	
 }
