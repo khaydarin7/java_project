@@ -96,12 +96,20 @@ public class HomeController {
 					
 					break;
 				case 2:
+					System.out.print("추가하실 노래 정보를 입력하세요.\n");
+					System.out.print("순위:");
 					int no = sc.nextInt();
+					System.out.print("제목:");
 					String title = sc.next();
+					System.out.print("가수:");
 					String singer = sc.next();
+					System.out.print("작사가:");
 					String lyricist = sc.next();
+					System.out.print("작곡가:");
 					String songwriter = sc.next();
+					System.out.print("발매일:ex)2020-00-00");
 					String release_date = sc.next();
+					System.out.print("장르:");
 					String genre = sc.next();
 					dtos=service.setMembers(no, title,singer,lyricist,songwriter,release_date, genre);
 					break;
