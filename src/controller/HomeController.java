@@ -10,7 +10,7 @@ public class HomeController {
 	
 	public static void main(String[] args)
 	{
-		ArrayList<MemberVO> dtos;
+		ArrayList<MemberVO> dtos = null;
 		MemberService service = new MemberService();
 		int choice = 0;
 		Scanner sc = new Scanner(System.in);
@@ -29,6 +29,7 @@ public class HomeController {
 					System.out.printf("발매일 : %s ",dtos.get(i).getRelease_Date());
 					System.out.printf("장르 : %s\n",dtos.get(i).getGenre());
 				}
+				dtos.removeAll(dtos);
 			}else if(choice==2) {
 				conditionMenu();
 				int choice2 = sc.nextInt();
@@ -39,15 +40,7 @@ public class HomeController {
 					String input_name = sc.next();
 					dtos=service.Search("no",input_name);
 					
-					for(int i=0; i<dtos.size(); i++) {
-					System.out.printf("순위 : %s ",dtos.get(i).getNO());
-					System.out.printf("제목 : %s ",dtos.get(i).getTitle());
-					System.out.printf("가수 : %s ",dtos.get(i).getSinger());
-					System.out.printf("작사가 : %s ",dtos.get(i).getLyticist());
-					System.out.printf("작곡가 : %s ",dtos.get(i).getSongWriter());
-					System.out.printf("발매일 : %s ",dtos.get(i).getRelease_Date());
-					System.out.printf("장르 : %s\n",dtos.get(i).getGenre());
-					}
+					
 					break;
 				case 2:
 					
@@ -70,6 +63,16 @@ public class HomeController {
 				default : System.out.println("잘못 입력하셨습니다.");
 					break;
 				}
+				for(int i=0; i<dtos.size(); i++) {
+					System.out.printf("순위 : %s ",dtos.get(i).getNO());
+					System.out.printf("제목 : %s ",dtos.get(i).getTitle());
+					System.out.printf("가수 : %s ",dtos.get(i).getSinger());
+					System.out.printf("작사가 : %s ",dtos.get(i).getLyticist());
+					System.out.printf("작곡가 : %s ",dtos.get(i).getSongWriter());
+					System.out.printf("발매일 : %s ",dtos.get(i).getRelease_Date());
+					System.out.printf("장르 : %s\n",dtos.get(i).getGenre());
+					}
+				dtos.removeAll(dtos);
 
 			}else if(choice==3) {
 				System.out.printf("1.수정\n");

@@ -65,7 +65,7 @@ public class MemberDAO {
 				String release_date = rs.getString("release_date");
 				String genre = rs.getString("genre");
 				MemberVO VO=new MemberVO(no,title,singer,lyricist,songwriter,release_date,genre);
-				
+				dtos.add(VO);
 			}
 		}
 		catch(SQLException e) {
