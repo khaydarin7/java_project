@@ -93,8 +93,22 @@ public class HomeController {
 				
 				switch(choice3) {
 				case 1:
-					System.out.print("수정하실 음원순위를 입력하세요.");
-					int no;
+					System.out.print("수정하실 음원순위를 입력하세요.\n");
+					int no = sc.nextInt();
+					System.out.print("수정정보를 입력하세요.\n");
+					System.out.print("제목:");
+					String title = sc.next();
+					System.out.print("가수:");
+					String singer = sc.next();
+					System.out.print("작사가:");
+					String lyricist = sc.next();
+					System.out.print("작곡가:");
+					String songwriter = sc.next();
+					System.out.print("발매일:ex)2020-00-00");
+					String release_date = sc.next();
+					System.out.print("장르:");
+					String genre = sc.next();
+	
 					dtos=service.updateMembers(no,title, singer,lyricist,songwriter,release_date,genre);
 			
 					break;
