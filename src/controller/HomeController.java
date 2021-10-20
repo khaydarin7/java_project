@@ -36,29 +36,41 @@ public class HomeController {
 				switch(choice2) {
 				
 				case 1:
-					System.out.print("조회하실 순위를 입력해주세요 ");
-					String input_name = sc.next();
-					dtos=service.Search("no",input_name);
-					
+					System.out.print("조회하실 순위를 입력해주세요");
+					String input_name2 = sc.next();
+					dtos=service.Search("no",input_name2);
 					
 					break;
 				case 2:
+					System.out.print("조회하실 제목을 입력하세요");
+					String input_name1 = sc.next();
+					dtos=service.Search("title", input_name1);
 					
 					break;
 				case 3:
-					
+					System.out.print("조회하실 가수를 입력하세요");
+					String input_name3 = sc.next();
+					dtos=service.Search("singer", input_name3);
 					break;
 				case 4:
-					
+					System.out.print("조회하실 작사가를 입력하세요");
+					String input_name4 = sc.next();
+					dtos=service.Search("lyricist", input_name4);
 					break;
 				case 5:
-					
+					System.out.print("조회하실 작곡가를 입력하세요");
+					String input_name5 = sc.next();
+					dtos=service.Search("songwriter", input_name5);
 					break;
 				case 6:
-					
+					System.out.print("조회하실 발매일을 입력하세요");
+					String input_name6 = sc.next();
+					dtos=service.Search("release_daate", input_name6);
 					break;
 				case 7:
-					
+					System.out.print("조회하실 장르를 입력하세요");
+					String input_name7 = sc.next();
+					dtos=service.Search("genre", input_name7);
 					break;
 				default : System.out.println("잘못 입력하셨습니다.");
 					break;
