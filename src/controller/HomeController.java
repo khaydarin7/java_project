@@ -32,20 +32,7 @@ public class HomeController {
 				dtos.removeAll(dtos);
 			}else if(choice==2) {
 				conditionMenu();
-<<<<<<< Updated upstream
 				int choice2 = sc.nextInt();
-=======
-				int no = sc.nextInt();
-				String title = sc.next();
-				String singer = sc.next();
-				String lyricist = sc.next();
-				String songwriter = sc.next();
-				String release_date = sc.next();
-				String genre = sc.next();
-				dtos=service.setMembers(no, title,singer,lyricist,songwriter,release_date, genre);
-
-				
->>>>>>> Stashed changes
 				switch(choice2) {
 				
 				case 1:

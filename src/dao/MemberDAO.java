@@ -21,7 +21,7 @@ public class MemberDAO {
 		dtos = new ArrayList<MemberVO>();
 		try {
 			String user="system";
-			String pw="0230";
+			String pw="1234";
 			String url="jdbc:oracle:thin:@localhost:1521:XE";
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con=DriverManager.getConnection(url,user,pw);
