@@ -23,4 +23,7 @@ public class MemberService {
 	public ArrayList<MemberVO> SearchByRank(String input_name) {
 		return dao.SearchByRank(input_name);
 	}
+	public ArrayList<MemberVO> deleteMembers(String input_title) {
+		return dao.deleteMembers(input_title);
+	}
 }

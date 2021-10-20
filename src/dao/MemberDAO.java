@@ -111,5 +111,26 @@ public class MemberDAO {
 			}
 			return dtos;
 		}
+	public ArrayList<MemberVO> deleteMembers(String input_title) {
+		String SQL = "delete from music_chart where title='"+input_title+"'";
+		try {
+			rs=st.executeQuery(SQL);
+			while(rs.next()) {
+				int no = rs.getInt("no");
+				String title = rs.getString("title");
+				String singer = rs.getString("singer");
+				String lyricist = rs.getString("lyricist");
+				String songwriter = rs.getString("songwriter");
+				String release_date = rs.getString("release_date");
+				String genre = rs.getString("genre");
+				MemberVO VO=new MemberVO(no,title,singer,lyricist,songwriter,release_date,genre);
+				dtos.add(VO);
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return dtos;
+	}
 }
 
