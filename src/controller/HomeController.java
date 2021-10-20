@@ -37,40 +37,40 @@ public class HomeController {
 				
 				case 1:
 					System.out.print("조회하실 순위를 입력해주세요");
-					String input_name2 = sc.next();
-					dtos=service.Search("no",input_name2);
+					String input_name = sc.next();
+					dtos=service.Search("no",input_name);
 					
 					break;
 				case 2:
 					System.out.print("조회하실 제목을 입력하세요");
-					String input_name1 = sc.next();
-					dtos=service.Search("title", input_name1);
+					input_name = sc.next();
+					dtos=service.Search("title", input_name);
 					
 					break;
 				case 3:
 					System.out.print("조회하실 가수를 입력하세요");
-					String input_name3 = sc.next();
-					dtos=service.Search("singer", input_name3);
+					input_name = sc.next();
+					dtos=service.Search("singer", input_name);
 					break;
 				case 4:
 					System.out.print("조회하실 작사가를 입력하세요");
-					String input_name4 = sc.next();
-					dtos=service.Search("lyricist", input_name4);
+					input_name = sc.next();
+					dtos=service.Search("lyricist", input_name);
 					break;
 				case 5:
 					System.out.print("조회하실 작곡가를 입력하세요");
-					String input_name5 = sc.next();
-					dtos=service.Search("songwriter", input_name5);
+					input_name = sc.next();
+					dtos=service.Search("songwriter", input_name);
 					break;
 				case 6:
 					System.out.print("조회하실 발매일을 입력하세요");
-					String input_name6 = sc.next();
-					dtos=service.Search("release_daate", input_name6);
+					input_name = sc.next();
+					dtos=service.Search("release_daate", input_name);
 					break;
 				case 7:
 					System.out.print("조회하실 장르를 입력하세요");
-					String input_name7 = sc.next();
-					dtos=service.Search("genre", input_name7);
+					input_name = sc.next();
+					dtos=service.Search("genre", input_name);
 					break;
 				default : System.out.println("잘못 입력하셨습니다.");
 					break;
@@ -94,26 +94,26 @@ public class HomeController {
 				switch(choice3) {
 				case 1:
 					System.out.print("수정하실 음원순위를 입력하세요.");
-					dtos=service.updateMembers(no,title, singer,lyricist,songwriter,
-							release_date,genre);
+					int no;
+					dtos=service.updateMembers(no,title, singer,lyricist,songwriter,release_date,genre);
 			
 					break;
 				case 2:
 					System.out.print("추가하실 노래 정보를 입력하세요.\n");
 					System.out.print("순위:");
-					int no = sc.nextInt();
+					no = sc.nextInt();
 					System.out.print("제목:");
-					String title = sc.next();
+					title = sc.next();
 					System.out.print("가수:");
-					String singer = sc.next();
+					singer = sc.next();
 					System.out.print("작사가:");
-					String lyricist = sc.next();
+					lyricist = sc.next();
 					System.out.print("작곡가:");
-					String songwriter = sc.next();
+					songwriter = sc.next();
 					System.out.print("발매일:ex)2020-00-00");
-					String release_date = sc.next();
+					release_date = sc.next();
 					System.out.print("장르:");
-					String genre = sc.next();
+					genre = sc.next();
 					dtos=service.setMembers(no, title,singer,lyricist,songwriter,release_date, genre);
 					break;
 				default : System.out.println("잘못 입력하셨습니다.");
