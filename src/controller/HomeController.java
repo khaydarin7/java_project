@@ -110,8 +110,8 @@ public class HomeController {
 				}
 			}else if(choice==4) {//음원 삭제
 				System.out.print("삭제하실 노래제목을 입력하세요.");
-				String input_name = sc.next();
-				dtos=service.deleteMembers(input_name);
+				String input_title = sc.next();
+				dtos=service.deleteMembers(input_title);
 				System.out.print("입력하신 노래정보가 삭제되었습니다.");
 			}else if(choice==5) {
 				RealtimeChart.ViewRealtimeChart();
