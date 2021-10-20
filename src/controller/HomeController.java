@@ -35,7 +35,9 @@ public class HomeController {
 				switch(choice2) {
 				
 				case 1:
-					
+					System.out.print("조회하실 순위를 입력해주세요 ");
+					int choice4 = sc.nextInt();
+					dtos=service.Search(condition,input_name);
 					break;
 				case 2:
 					
