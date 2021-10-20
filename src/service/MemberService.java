@@ -26,4 +26,7 @@ public class MemberService {
 	public ArrayList<MemberVO> deleteMembers(String input_title) {
 		return dao.deleteMembers(input_title);
 	}
+	public ArrayList<MemberVO> updateMembers(int no, String title, String singer,String lyricist,String songwriter,String release_date,String genre) {
+		return dao.setMembers(no,title, singer,lyricist,songwriter,release_date,genre);
+	}
 }

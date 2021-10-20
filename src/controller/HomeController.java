@@ -93,7 +93,10 @@ public class HomeController {
 				
 				switch(choice3) {
 				case 1:
-					
+					System.out.print("수정하실 음원순위를 입력하세요.");
+					dtos=service.updateMembers(no,title, singer,lyricist,songwriter,
+							release_date,genre);
+			
 					break;
 				case 2:
 					System.out.print("추가하실 노래 정보를 입력하세요.\n");
