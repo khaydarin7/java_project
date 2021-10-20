@@ -21,7 +21,7 @@ public class MemberDAO {
 		dtos = new ArrayList<MemberVO>();
 		try {
 			String user="system";
-			String pw="0230";
+			String pw="1234";
 			String url="jdbc:oracle:thin:@localhost:1521:XE";
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con=DriverManager.getConnection(url,user,pw);
@@ -39,7 +39,7 @@ public class MemberDAO {
 				int no = rs.getInt("no");
 				String title = rs.getString("title");
 				String singer = rs.getString("singer");
-				String lyricist = rs.getString("lyricist");
+				String lyricist = rs.getString("lyricistk ");
 				String songwriter = rs.getString("songwriter");
 				String release_date = rs.getString("release_date");
 				String genre = rs.getString("genre");
