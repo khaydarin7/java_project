@@ -21,7 +21,7 @@ public class MemberDAO {
 		dtos = new ArrayList<MemberVO>();
 		try {
 			String user="system";
-			String pw="1234";
+			String pw="0230";
 			String url="jdbc:oracle:thin:@localhost:1521:XE";
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con=DriverManager.getConnection(url,user,pw);
@@ -39,7 +39,7 @@ public class MemberDAO {
 				int no = rs.getInt("no");
 				String title = rs.getString("title");
 				String singer = rs.getString("singer");
-				String lyricist = rs.getString("lyricistk ");
+				String lyricist = rs.getString("lyricist");
 				String songwriter = rs.getString("songwriter");
 				String release_date = rs.getString("release_date");
 				String genre = rs.getString("genre");
@@ -75,7 +75,6 @@ public class MemberDAO {
 	}
 	public ArrayList<MemberVO> setMembers(int no, String title, String singer,String lyricist,String songwriter,String release_date,String genre) {
 			String SQL = "Insert INTO music_chart(no,title,singer,lyricist,songwriter,release_date,genre) VALUES(?,?,?,?,?,?,?)";
-			
 			try {
 				pstmt=con.prepareStatement(SQL);
 				pstmt.setInt(1, no);

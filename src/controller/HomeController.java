@@ -30,7 +30,14 @@ public class HomeController {
 					System.out.printf("¿Â∏£ : %s\n",dtos.get(i).getGenre());
 				}
 			}else if(choice==2) {
-				
+				int no = sc.nextInt();
+				String title = sc.next();
+				String singer = sc.next();
+				String lyricist = sc.next();
+				String songwriter = sc.next();
+				String release_date = sc.next();
+				String genre = sc.next();
+				dtos=service.setMembers(no, title,singer,lyricist,songwriter,release_date, genre);
 			}else if(choice==3) {
 				
 			}else if(choice==4) {
