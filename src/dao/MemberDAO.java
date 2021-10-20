@@ -52,8 +52,8 @@ public class MemberDAO {
 		}
 		return dtos;
 	}
-	public ArrayList<MemberVO> SearchByRank(String condition,String input_name) {
-		String SQL = "SELECT * FROM music_chart where "+condition+" like '%"+input_name+"%'";
+	public ArrayList<MemberVO> SearchByRank(String input_name) {
+		String SQL = "SELECT * FROM music_chart where no like "+input_name;
 		try {
 			rs=st.executeQuery(SQL);
 			while(rs.next()) {
