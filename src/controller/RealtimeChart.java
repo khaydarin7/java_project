@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.jsoup.Jsoup;
@@ -8,20 +9,28 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import dto.MemberVO;
+import service.MemberService;
+
 public class RealtimeChart {
-	public static void ViewRealtimeChart() {
+	public static void UpdateRealtimeChart() {
+		ArrayList<MemberVO> dtos;
+		MemberService service = new MemberService();
 		String url="https://www.genie.co.kr/chart/top200";
 	    Document doc = null;
 	    try {
 	        doc=Jsoup.connect(url).get();
 	        Elements element = doc.select("table.list-wrap");
-	        Iterator<Element> songName = element.select("a.title.ellipsis").iterator();
+	        Iterator<Element> Title = element.select("a.title.ellipsis").iterator();
 	        Iterator<Element> artist = element.select("a.artist.ellipsis").iterator();
-	        Iterator<Element> albumtitle = element.select("a.albumtitle.ellipsis").iterator();
-	        int rank = 0;
-	        while(rank < 50) {
-	            rank++;
-	            System.out.println(rank + "À§ " + artist.next().text() + " - " + songName.next().text() + " / " + albumtitle.next().text());
+	        Iterator<Element> Album = element.select("a.albumtitle.ellipsis").iterator();
+	        int Rank = 0;
+	        while(Rank < 50) {
+	            Rank++;
+	            String SongTitle = Title.next().text();
+	            String SingerName = artist.next().text();
+	            String AlbumTitle = Album.next().text();
+	            dtos=service.InsertChart(Rank,SongTitle,SingerName,AlbumTitle);
 	        }
 	        }catch(IOException e) {
 	            e.printStackTrace();
@@ -31,13 +40,16 @@ public class RealtimeChart {
 	    try {
 	        doc=Jsoup.connect(url).get();
 	        Elements element = doc.select("table.list-wrap");
-	        Iterator<Element> songName = element.select("a.title.ellipsis").iterator();
+	        Iterator<Element> Title = element.select("a.title.ellipsis").iterator();
 	        Iterator<Element> artist = element.select("a.artist.ellipsis").iterator();
-	        Iterator<Element> albumtitle = element.select("a.albumtitle.ellipsis").iterator();
-	        int rank = 50;
-	        while(rank < 100) {
-	            rank++;
-	            System.out.println(rank + "À§ " + artist.next().text() + " - " + songName.next().text() + " / " + albumtitle.next().text());
+	        Iterator<Element> Album = element.select("a.albumtitle.ellipsis").iterator();
+	        int Rank = 50;
+	        while(Rank < 100) {
+	            Rank++;
+	            String SongTitle = Title.next().text();
+	            String SingerName = artist.next().text();
+	            String AlbumTitle = Album.next().text();
+	            dtos=service.InsertChart(Rank,SongTitle,SingerName,AlbumTitle);
 	        }
 	        }catch(IOException e) {
 	            e.printStackTrace();

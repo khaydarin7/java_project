@@ -19,124 +19,62 @@ public class HomeController {
 			menu();
 			choice=sc.nextInt();
 			if(choice==1) {
-				dtos=service.getAllMembers();
+				dtos=service.getAllChart();
 				for(int i=0; i<dtos.size(); i++) {
-					System.out.printf("순위 : %s ",dtos.get(i).getNO());
-					System.out.printf("제목 : %s ",dtos.get(i).getTitle());
-					System.out.printf("가수 : %s ",dtos.get(i).getSinger());
-					System.out.printf("작사가 : %s ",dtos.get(i).getLyticist());
-					System.out.printf("작곡가 : %s ",dtos.get(i).getSongWriter());
-					System.out.printf("발매일 : %s ",dtos.get(i).getRelease_Date());
-					System.out.printf("장르 : %s\n",dtos.get(i).getGenre());
+					System.out.printf("%s위 ",dtos.get(i).getRank());
+					System.out.printf("%s - ",dtos.get(i).getSongTitle());
+					System.out.printf("%s",dtos.get(i).getSingerName());
+					System.out.printf(" / %s\n",dtos.get(i).getAlbumTitle());
 				}
 				dtos.removeAll(dtos);
 			}else if(choice==2) {
 				conditionMenu();
-				int choice2 = sc.nextInt();
-				switch(choice2) {
+				int conditionchoice = sc.nextInt();
+				switch(conditionchoice) {
 				
 				case 1:
-					System.out.print("조회하실 순위를 입력해주세요");
-					String input_name2 = sc.next();
-					dtos=service.SearchByRank(input_name2);
+					System.out.print("조회하실 순위를 입력해주세요: ");
+					int input_Rank = sc.nextInt();
+					dtos=service.SearchByRank(input_Rank);
 					break;
 				case 2:
-					System.out.print("조회하실 제목을 입력하세요");
-					String input_name1 = sc.next();
-					dtos=service.Search("title", input_name1);
+					System.out.print("조회하실 제목을 입력해주세요: ");
+					String input_name = sc.next();
+					dtos=service.Search("songtitle", input_name);
 					break;
 				case 3:
-					System.out.print("조회하실 가수를 입력하세요");
-					String input_name3 = sc.next();
-					dtos=service.Search("singer", input_name3);
+					System.out.print("조회하실 가수를 입력해주세요: ");
+					input_name = sc.next();
+					dtos=service.Search("singername", input_name);
 					break;
 				case 4:
-					System.out.print("조회하실 작사가를 입력하세요");
-					String input_name4 = sc.next();
-					dtos=service.Search("lyricist", input_name4);
-					break;
-				case 5:
-					System.out.print("조회하실 작곡가를 입력하세요");
-					String input_name5 = sc.next();
-					dtos=service.Search("songwriter", input_name5);
-					break;
-				case 6:
-					System.out.print("조회하실 발매일을 입력하세요");
-					String input_name6 = sc.next();
-					dtos=service.Search("release_daate", input_name6);
-					break;
-				case 7:
-					System.out.print("조회하실 장르를 입력하세요");
-					String input_name7 = sc.next();
-					dtos=service.Search("genre", input_name7);
+					System.out.print("조회하실 앨범를 입력해주세요: ");
+					input_name = sc.next();
+					dtos=service.Search("albumtitle", input_name);
 					break;
 				default : System.out.println("잘못 입력하셨습니다.");
 					break;
 				}
 				for(int i=0; i<dtos.size(); i++) {
-					System.out.printf("순위 : %s ",dtos.get(i).getNO());
-					System.out.printf("제목 : %s ",dtos.get(i).getTitle());
-					System.out.printf("가수 : %s ",dtos.get(i).getSinger());
-					System.out.printf("작사가 : %s ",dtos.get(i).getLyticist());
-					System.out.printf("작곡가 : %s ",dtos.get(i).getSongWriter());
-					System.out.printf("발매일 : %s ",dtos.get(i).getRelease_Date());
-					System.out.printf("장르 : %s\n",dtos.get(i).getGenre());
+					System.out.printf("%s위 ",dtos.get(i).getRank());
+					System.out.printf("%s - ",dtos.get(i).getSongTitle());
+					System.out.printf("%s",dtos.get(i).getSingerName());
+					System.out.printf(" / %s\n",dtos.get(i).getAlbumTitle());
 					}
 				dtos.removeAll(dtos);
 
 			}else if(choice==3) {
-				System.out.printf("1.수정\n");
-				System.out.printf("2.추가\n");
-				int choice3 = sc.nextInt();
+				dtos=service.truncatechart();
+				RealtimeChart.UpdateRealtimeChart();
+				System.out.println("업데이트 완료!\n");
 				
-				switch(choice3) {
-				case 1:
-					System.out.print("수정하실 음원순위를 입력하세요.\n");
-					int no = sc.nextInt();
-					System.out.print("수정정보를 입력하세요.\n");
-					System.out.print("제목:");
-					String title = sc.next();
-					System.out.print("가수:");
-					String singer = sc.next();
-					System.out.print("작사가:");
-					String lyricist = sc.next();
-					System.out.print("작곡가:");
-					String songwriter = sc.next();
-					System.out.print("발매일:ex)2020-00-00");
-					String release_date = sc.next();
-					System.out.print("장르:");
-					String genre = sc.next();
-					dtos=service.updateMembers(no,title, singer,lyricist,songwriter,release_date,genre);
-					break;
-				case 2:
-					System.out.print("추가하실 노래 정보를 입력하세요.\n");
-					System.out.print("순위:");
-					no = sc.nextInt();
-					System.out.print("제목:");
-					title = sc.next();
-					System.out.print("가수:");
-					singer = sc.next();
-					System.out.print("작사가:");
-					lyricist = sc.next();
-					System.out.print("작곡가:");
-					songwriter = sc.next();
-					System.out.print("발매일:ex)2020-00-00");
-					release_date = sc.next();
-					System.out.print("장르:");
-					genre = sc.next();
-					dtos=service.setMembers(no, title,singer,lyricist,songwriter,release_date, genre);
-					break;
-				default : System.out.println("잘못 입력하셨습니다.");
-					break;
-				}
 			}else if(choice==4) {//음원 삭제
 				System.out.print("삭제하실 노래제목을 입력하세요.");
 				String input_title = sc.next();
 				dtos=service.deleteMembers(input_title);
 				System.out.print("입력하신 노래정보가 삭제되었습니다.");
 			}else if(choice==5) {
-				RealtimeChart.ViewRealtimeChart();
-			}else if(choice==6) {
+				System.out.print("프로그램을 종료합니다.");
 				break;
 			}else {
 				System.out.println("잘못 입력하셨습니다.");
@@ -148,18 +86,14 @@ public class HomeController {
 	public static void menu() {
 		System.out.println("1.음원 모두 조회");
 		System.out.println("2.항목별 조건 조회");
-		System.out.println("3.음원 데이터 수정, 추가");
+		System.out.println("3.음원 데이터 업데이트");
 		System.out.println("4.음원삭제");
-		System.out.println("5.실시간 차트 조회");
-		System.out.println("6.종료");
+		System.out.println("5.종료");
 	}
 	public static void conditionMenu() {
-		System.out.println("1.순위로 조회");
-		System.out.println("2.제목으로 조회");
-		System.out.println("3.가수로 조회");
-		System.out.println("4.작사가로 조회");
-		System.out.println("5.작곡가로 조회");
-		System.out.println("6.발매일로 조회");
-		System.out.println("7.장르로 조회");
+		System.out.println("1.순위 조회");
+		System.out.println("2.제목 조회");
+		System.out.println("3.가수 조회");
+		System.out.println("4.앨범 조회");
 	}
 }
